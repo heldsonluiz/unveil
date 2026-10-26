@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/motion/reveal";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { connectionHref } from "@/features/connections/selectors";
@@ -52,7 +53,7 @@ export function DashboardView() {
     return (
       <div
         role="alert"
-        className="flex flex-col items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive sm:flex-row sm:items-center"
+        className="flex flex-col items-start gap-3 rounded-xl border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive sm:flex-row sm:items-center"
       >
         <AlertCircle className="size-4" aria-hidden="true" />
         <span>{error}</span>
@@ -110,18 +111,21 @@ export function DashboardView() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+      <div className="dashboard-metrics grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
         <MetricCard
+          delay={0.0}
           label="Seguidores"
           value={summary.followersCount}
           href={connectionHref("followers", selectedId)}
         />
         <MetricCard
+          delay={0.065}
           label="Seguindo"
           value={summary.followingCount}
           href={connectionHref("following", selectedId)}
         />
         <MetricCard
+          delay={0.13}
           label="Conexões mútuas"
           href={connectionHref("mutuals", selectedId)}
           value={
@@ -131,6 +135,7 @@ export function DashboardView() {
           }
         />
         <MetricCard
+          delay={0.195}
           label="Não seguem de volta"
           href={connectionHref("not-following-back", selectedId)}
           value={
@@ -140,6 +145,7 @@ export function DashboardView() {
           }
         />
         <MetricCard
+          delay={0.26}
           label="Não sigo de volta"
           href={connectionHref("not-followed-back", selectedId)}
           value={
@@ -149,11 +155,13 @@ export function DashboardView() {
           }
         />
         <MetricCard
+          delay={0.325}
           label="Solicitações enviadas"
           value={summary.pendingSentCount}
           href={connectionHref("pending-sent", selectedId)}
         />
         <MetricCard
+          delay={0.39}
           label="Solicitações recebidas"
           value={summary.pendingReceivedCount}
           href={connectionHref("pending-received", selectedId)}
@@ -175,10 +183,12 @@ export function DashboardView() {
 }
 
 function MetricCard({
+  delay,
   label,
   value,
   href,
 }: {
+  delay: number;
   label: string;
   value: number | null;
   href?: string;
@@ -215,16 +225,20 @@ function MetricCard({
       </CardContent>
     </Card>
   );
-  return href ? (
-    <Link
-      href={href}
-      aria-label={`Abrir ${label}`}
-      className="group block cursor-pointer rounded-xl transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none"
-    >
-      {card}
-    </Link>
-  ) : (
-    card
+  return (
+    <Reveal delay={delay} className="dashboard-metric-slot relative">
+      {href ? (
+        <Link
+          href={href}
+          aria-label={`Abrir ${label}`}
+          className="group block cursor-pointer rounded-xl transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none"
+        >
+          {card}
+        </Link>
+      ) : (
+        card
+      )}
+    </Reveal>
   );
 }
 

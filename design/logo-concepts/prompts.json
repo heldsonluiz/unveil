@@ -1,0 +1,30 @@
+{
+  "tool": "Built-in image_gen",
+  "concepts": [
+    {
+      "name": "01-reciprocidade",
+      "prompt": "Use case: logo-brand. Create one distinctive professional icon concept for Unveil, a privacy-first frontend app that analyzes an Instagram data export locally to reveal mutual connections, who follows back and one-way relationships. Concept: Reciprocidade: two bold interlocking open links, subtly shaping a U, one complete reciprocal connection and one deliberate open endpoint. Custom asymmetric geometric silhouette, no arrows. Style: confident flat vector-like graphic, bespoke optical geometry, strong negative space, recognizable at favicon size. Palette: solid moss green #a0ba46 with at most a small lighter #b3cc5c accent, on perfectly neutral near-black #141414 background. Square canvas, centered single large symbol with generous clear margin. No lettering, no wordmark, no labels, no presentation board, no mockup, no gradient, no glow, no 3D, no texture, no Instagram logo, no generic AI sparkle. Output one icon only.",
+      "source": "/home/helds/.codex/generated_images/01a17835-62d0-7b53-a9af-51dc03492bd0/exec-c3dcc4c7-7dcd-440e-bc08-db348f6f8c94.png"
+    },
+    {
+      "name": "02-revelar",
+      "prompt": "Use case: logo-brand. Create one distinctive professional icon concept for Unveil, a privacy-first frontend app that analyzes an Instagram data export locally to reveal mutual connections, who follows back and one-way relationships. Concept: Revelar: a bold geometric folded veil or overlapping shutter pulls away to reveal one circular connection node in negative space. Suggest discovery and transparency, not an eye or camera. Style: confident flat vector-like graphic, bespoke optical geometry, strong negative space, recognizable at favicon size. Palette: solid moss green #a0ba46 with at most a small lighter #b3cc5c accent, on perfectly neutral near-black #141414 background. Square canvas, centered single large symbol with generous clear margin. No lettering, no wordmark, no labels, no presentation board, no mockup, no gradient, no glow, no 3D, no texture, no Instagram logo, no generic AI sparkle. Output one icon only.",
+      "source": "/home/helds/.codex/generated_images/01a17835-62d0-7b53-a9af-51dc03492bd0/exec-aed3de26-a47d-4dde-980f-1f662b39a706.png"
+    },
+    {
+      "name": "03-intersecao",
+      "prompt": "Use case: logo-brand. Create one distinctive professional icon concept for Unveil, a privacy-first frontend app that analyzes an Instagram data export locally to reveal mutual connections, who follows back and one-way relationships. Concept: Interseção: two overlapping offset rounded geometric loops with a sharply defined shared center in negative space, expressing mutual followers and set intersection. Distinctive compact asymmetric silhouette. Style: confident flat vector-like graphic, bespoke optical geometry, strong negative space, recognizable at favicon size. Palette: solid moss green #a0ba46 with at most a small lighter #b3cc5c accent, on perfectly neutral near-black #141414 background. Square canvas, centered single large symbol with generous clear margin. No lettering, no wordmark, no labels, no presentation board, no mockup, no gradient, no glow, no 3D, no texture, no Instagram logo, no generic AI sparkle. Output one icon only.",
+      "source": "/home/helds/.codex/generated_images/01a17835-62d0-7b53-a9af-51dc03492bd0/exec-582b00c5-0464-4cbe-a39d-519525eb350c.png"
+    },
+    {
+      "name": "04-mapa",
+      "prompt": "Use case: logo-brand. Create one distinctive professional icon concept for Unveil, a privacy-first frontend app that analyzes an Instagram data export locally to reveal mutual connections, who follows back and one-way relationships. Concept: Mapa de conexões: a compact arrangement of exactly four substantial circular nodes connected by thick deliberate paths, two reciprocal and one open branch, forming a subtle U. No circuit board or brain. Style: confident flat vector-like graphic, bespoke optical geometry, strong negative space, recognizable at favicon size. Palette: solid moss green #a0ba46 with at most a small lighter #b3cc5c accent, on perfectly neutral near-black #141414 background. Square canvas, centered single large symbol with generous clear margin. No lettering, no wordmark, no labels, no presentation board, no mockup, no gradient, no glow, no 3D, no texture, no Instagram logo, no generic AI sparkle. Output one icon only.",
+      "source": "/home/helds/.codex/generated_images/01a17835-62d0-7b53-a9af-51dc03492bd0/exec-355dec78-8e9e-4e3a-a12d-41769240be46.png"
+    },
+    {
+      "name": "05-monograma",
+      "prompt": "Use case: logo-brand. Create one distinctive professional icon concept for Unveil, a privacy-first frontend app that analyzes an Instagram data export locally to reveal mutual connections, who follows back and one-way relationships. Concept: Monograma U: custom chunky angular U built from two facing brackets with small offset breaks and one bridge, combining frontend syntax and revealing reciprocal relationships. Not a generic font glyph or power icon. Style: confident flat vector-like graphic, bespoke optical geometry, strong negative space, recognizable at favicon size. Palette: solid moss green #a0ba46 with at most a small lighter #b3cc5c accent, on perfectly neutral near-black #141414 background. Square canvas, centered single large symbol with generous clear margin. No lettering, no wordmark, no labels, no presentation board, no mockup, no gradient, no glow, no 3D, no texture, no Instagram logo, no generic AI sparkle. Output one icon only.",
+      "source": "/home/helds/.codex/generated_images/01a17835-62d0-7b53-a9af-51dc03492bd0/exec-b80a77b6-d55c-48c1-bd54-6bea768d56cc.png"
+    }
+  ]
+}

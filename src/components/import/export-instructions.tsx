@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -48,36 +49,40 @@ export function ExportInstructions({
         <CardContent className="pt-6">
           <ol className="space-y-5">
             {[
-              <>
+              <Fragment key="profile">
                 Abra seu <strong>perfil</strong>.
-              </>,
-              <>
+              </Fragment>,
+              <Fragment key="menu">
                 Toque no menu <strong>☰</strong>.
-              </>,
-              <>
-                Entre em <strong>Central de Contas</strong>.
-              </>,
-              <>
+              </Fragment>,
+              <Fragment key="accounts-center">
+                Entre em <strong>Central de contas / Conta Meta</strong>.
+              </Fragment>,
+              <Fragment key="permissions">
                 Abra <strong>Suas informações e permissões</strong>.
-              </>,
-              <>
+              </Fragment>,
+              <Fragment key="export-information">
                 Toque em <strong>Exportar suas informações</strong>.
-              </>,
-              <>
+              </Fragment>,
+              <Fragment key="create-export">
                 Selecione <strong>Criar exportação</strong>.
-              </>,
-              <>Escolha sua conta do Instagram.</>,
-              <>
+              </Fragment>,
+              <Fragment key="account">
+                Escolha sua conta do Instagram.
+              </Fragment>,
+              <Fragment key="destination">
                 Selecione <strong>Exportar para o dispositivo</strong>.
-              </>,
-              <>
+              </Fragment>,
+              <Fragment key="customize">
                 Entre em <strong>Personalizar informações</strong>.
-              </>,
-              <>Desmarque todas as categorias.</>,
-              <>
+              </Fragment>,
+              <Fragment key="categories">
+                Desmarque todas as categorias.
+              </Fragment>,
+              <Fragment key="connections">
                 Em <strong>Conexões</strong>, marque apenas{" "}
                 <strong>Seguidores e seguindo</strong>.
-              </>,
+              </Fragment>,
             ].map((step, index) => (
               <li
                 key={index}
@@ -139,7 +144,7 @@ export function ExportInstructions({
             </li>
           </ol>
 
-          <div className="mt-8 flex gap-3 rounded-xl border border-primary/20 bg-primary/5 p-5 text-sm leading-6 text-muted-foreground">
+          <div className="mt-8 flex gap-3 rounded-xl border border-primary/20 bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
             <Info
               className="mt-1 size-4 shrink-0 text-primary"
               aria-hidden="true"
@@ -148,7 +153,8 @@ export function ExportInstructions({
               A Meta pode pedir sua senha para confirmar a solicitação. O
               processamento pode levar alguns minutos ou algumas horas. Quando
               estiver pronto, você receberá uma notificação ou e-mail. O
-              download será feito pela mesma área da Central de Contas.
+              download será feito pela mesma área da Central de contas / Conta
+              Meta.
             </p>
           </div>
 

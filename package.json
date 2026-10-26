@@ -23,6 +23,7 @@
     "idb": "^8.0.3",
     "jszip": "^3.10.2",
     "lucide-react": "^1.46.0",
+    "motion": "^14.6.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -31,6 +32,8 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@eslint-react/eslint-plugin": "^5.28.8",
+    "@next/eslint-plugin-next": "16.3.5",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.1",
@@ -39,14 +42,21 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.5",
+    "eslint": "^10.13.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "fake-indexeddb": "^6.2.5",
+    "globals": "^16.4.0",
     "jsdom": "^30.0.1",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "typescript-eslint": "^8.72.0",
     "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
   }
 }

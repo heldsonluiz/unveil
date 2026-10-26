@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/reveal";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,7 +17,7 @@ export default function Home() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-7 sm:px-6 sm:py-10 lg:px-8 lg:py-16">
       <section className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <Badge
             variant="secondary"
             className="mb-4 gap-2 px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.14em] sm:mb-6 sm:text-xs sm:tracking-[0.16em]"
@@ -53,46 +54,48 @@ export default function Home() {
           <p className="mt-5 text-sm text-muted-foreground">
             Nenhum login ou senha do Instagram será solicitado.
           </p>
-        </div>
+        </Reveal>
 
-        <Card className="border-primary/20 bg-card/80 shadow-xl shadow-primary/5">
-          <CardHeader className="flex flex-row items-center gap-3 border-b border-border/70">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-12 sm:rounded-2xl">
-              <FileArchive aria-hidden="true" />
-            </div>
-            <CardTitle className="text-xl">
-              Seu arquivo fica no seu dispositivo
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-5 pt-6">
-            {[
-              "O ZIP será processado somente no navegador.",
-              "Nenhum arquivo ou perfil será enviado para um servidor.",
-              "Os resultados representam o momento da exportação, sem atualização em tempo real.",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex gap-3 text-sm leading-6 text-muted-foreground"
-              >
-                <Check
+        <Reveal delay={0.12}>
+          <Card className="border-primary/20 bg-card/80 shadow-xl shadow-primary/5">
+            <CardHeader className="flex flex-row items-center gap-3 border-b border-border/70">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-12 sm:rounded-2xl">
+                <FileArchive aria-hidden="true" />
+              </div>
+              <CardTitle className="text-xl">
+                Seu arquivo fica no seu dispositivo
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-5 pt-6">
+              {[
+                "O ZIP será processado somente no navegador.",
+                "Nenhum arquivo ou perfil será enviado para um servidor.",
+                "Os resultados representam o momento da exportação, sem atualização em tempo real.",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-3 text-sm leading-6 text-muted-foreground"
+                >
+                  <Check
+                    className="mt-1 size-4 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </div>
+              ))}
+              <div className="flex items-start gap-3 border-t border-border/70 pt-5 text-sm leading-6 text-muted-foreground">
+                <LockKeyhole
                   className="mt-1 size-4 shrink-0 text-primary"
                   aria-hidden="true"
                 />
-                <span>{item}</span>
+                <span>
+                  O Unveil não acessa a conta, não faz scraping e não executa
+                  ações no Instagram.
+                </span>
               </div>
-            ))}
-            <div className="flex items-start gap-3 border-t border-border/70 pt-5 text-sm leading-6 text-muted-foreground">
-              <LockKeyhole
-                className="mt-1 size-4 shrink-0 text-primary"
-                aria-hidden="true"
-              />
-              <span>
-                O Unveil não acessa a conta, não faz scraping e não executa
-                ações no Instagram.
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Reveal>
       </section>
 
       <section
@@ -119,9 +122,9 @@ export default function Home() {
           {[
             {
               icon: Download,
-              title: "Abra a Central de Contas",
+              title: "Abra a Central de contas / Conta Meta",
               description:
-                "No Instagram, abra seu perfil, entre em Configurações e acesse a Central de Contas.",
+                "No Instagram, abra seu perfil, entre em Configurações e acesse a Central de contas / Conta Meta.",
             },
             {
               icon: FileArchive,
@@ -136,7 +139,9 @@ export default function Home() {
                 "Quando a Meta preparar o arquivo, baixe o ZIP oficial e selecione-o na tela de Importação.",
             },
           ].map(({ icon: Icon, title, description }, index) => (
-            <li
+            <Reveal
+              as="li"
+              delay={index * 0.09}
               key={title}
               className="relative rounded-xl border border-border/70 bg-card/60 p-5"
             >
@@ -152,7 +157,7 @@ export default function Home() {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 {description}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ol>
         <Link

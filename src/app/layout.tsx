@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppShell } from "@/components/app-shell/app-shell";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   icons: {
-    icon: { url: "/icon-dark.png", type: "image/png" },
+    icon: { url: "/icon-reciprocidade.png", type: "image/png" },
   },
   title: {
     default: "Unveil",
@@ -34,7 +35,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full">
-        <AppShell>{children}</AppShell>
+        <MotionProvider>
+          <AppShell>{children}</AppShell>
+        </MotionProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EB2C44HDPW"
           strategy="afterInteractive"

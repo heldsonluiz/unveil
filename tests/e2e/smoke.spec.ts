@@ -5,7 +5,7 @@ test("mantém a identidade visual no tema escuro", async ({ page }) => {
   await page.goto("/");
 
   const brand = page.getByRole("link", { name: "Unveil, início" });
-  const darkIcon = brand.locator('img[src*="icon-dark.png"]');
+  const darkIcon = brand.locator('img[src*="icon-reciprocidade.png"]');
 
   await expect(page.locator("html")).toHaveClass(/dark/);
   await expect(
@@ -16,7 +16,7 @@ test("mantém a identidade visual no tema escuro", async ({ page }) => {
   await expect(darkIcon).not.toHaveJSProperty("naturalWidth", 0);
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
     "href",
-    "/icon-dark.png",
+    "/icon-reciprocidade.png",
   );
 });
 

@@ -82,6 +82,39 @@ for (const viewport of [
     await expect(
       page.getByRole("link", { name: "Abrir Seguidores", exact: true }),
     ).toContainText("52");
+    if (viewport.width === 1280) {
+      const slots = page.locator(".dashboard-metric-slot");
+      const card = slots.first().getByRole("link");
+      const otherCard = slots.nth(1).getByRole("link");
+      const layout = () =>
+        slots.evaluateAll((elements) =>
+          elements.map((element) => {
+            const box = element as HTMLElement;
+            return [
+              box.offsetLeft,
+              box.offsetTop,
+              box.offsetWidth,
+              box.offsetHeight,
+            ];
+          }),
+        );
+      const before = await layout();
+      await card.hover();
+      await expect(card).toHaveCSS("scale", "1.04");
+      await expect(otherCard).toHaveCSS("filter", "none");
+      await expect(otherCard).toHaveCSS("scale", "0.96");
+      expect(await layout()).toEqual(before);
+      await page.mouse.move(0, 0);
+      await expect(card).toHaveCSS("scale", "none");
+      await expect(otherCard).toHaveCSS("filter", "none");
+      await expect(otherCard).toHaveCSS("scale", "none");
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await card.hover();
+      await expect(card).toHaveCSS("scale", "none");
+      await expect(otherCard).toHaveCSS("filter", "none");
+      await expect(otherCard).toHaveCSS("scale", "none");
+      await page.emulateMedia({ reducedMotion: "no-preference" });
+    }
     await page
       .getByRole("link", { name: "Abrir Seguidores", exact: true })
       .click();

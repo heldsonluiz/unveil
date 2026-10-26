@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/motion/reveal";
 import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -303,73 +304,77 @@ export function ImportWorkflow() {
         </DialogContent>
       </Dialog>
       {status === "idle" || status === "error" ? (
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={() => inputRef.current?.click()}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ")
-              inputRef.current?.click();
-          }}
-          onDragOver={(event) => event.preventDefault()}
-          onDrop={handleDrop}
-          className="rounded-2xl border-2 border-dashed border-primary/30 bg-card/60 p-6 text-center transition-colors hover:border-primary/60 hover:bg-card sm:p-12"
-          aria-label="Selecionar arquivo ZIP"
-        >
-          <UploadCloud
-            className="mx-auto size-10 text-primary"
-            aria-hidden="true"
-          />
-          <h2 className="mt-4 text-lg font-semibold">
-            Selecione ou solte seu ZIP aqui
-          </h2>
-          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
-            O arquivo será aberto somente neste navegador. Limite de tamanho:{" "}
-            {formatBytes(DEFAULT_ZIP_LIMITS.maxCompressedBytes)}.
-          </p>
-          <Button
-            type="button"
-            className="mt-5"
-            onClick={(event) => {
-              event.stopPropagation();
-              inputRef.current?.click();
+        <Reveal>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => inputRef.current?.click()}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ")
+                inputRef.current?.click();
             }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={handleDrop}
+            className="rounded-2xl border-2 border-dashed border-primary/30 bg-card/60 p-6 text-center transition-colors hover:border-primary/60 hover:bg-card sm:p-12"
+            aria-label="Selecionar arquivo ZIP"
           >
-            <FileArchive aria-hidden="true" />
-            Escolher arquivo
-          </Button>
-          <input
-            ref={inputRef}
-            type="file"
-            accept=".zip,application/zip"
-            aria-label="Arquivo ZIP"
-            className="sr-only"
-            onChange={handleFileChange}
-          />
-        </div>
+            <UploadCloud
+              className="mx-auto size-10 text-primary"
+              aria-hidden="true"
+            />
+            <h2 className="mt-4 text-lg font-semibold">
+              Selecione ou solte seu ZIP aqui
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
+              O arquivo será aberto somente neste navegador. Limite de tamanho:{" "}
+              {formatBytes(DEFAULT_ZIP_LIMITS.maxCompressedBytes)}.
+            </p>
+            <Button
+              type="button"
+              className="mt-5"
+              onClick={(event) => {
+                event.stopPropagation();
+                inputRef.current?.click();
+              }}
+            >
+              <FileArchive aria-hidden="true" />
+              Escolher arquivo
+            </Button>
+            <input
+              ref={inputRef}
+              type="file"
+              accept=".zip,application/zip"
+              aria-label="Arquivo ZIP"
+              className="sr-only"
+              onChange={handleFileChange}
+            />
+          </div>
+        </Reveal>
       ) : null}
 
       {status === "processing" ? (
-        <Card>
-          <CardContent className="space-y-4 p-6">
-            <div className="flex items-center justify-between gap-4 text-sm">
-              <span>{progressLabel}</span>
-              <span className="tabular-nums text-muted-foreground">
-                {progress}%
-              </span>
-            </div>
-            <Progress value={progress} aria-label={progressLabel} />
-            <Button variant="outline" onClick={reset}>
-              Cancelar
-            </Button>
-          </CardContent>
-        </Card>
+        <Reveal>
+          <Card>
+            <CardContent className="space-y-4 p-6">
+              <div className="flex items-center justify-between gap-4 text-sm">
+                <span>{progressLabel}</span>
+                <span className="tabular-nums text-muted-foreground">
+                  {progress}%
+                </span>
+              </div>
+              <Progress value={progress} aria-label={progressLabel} />
+              <Button variant="outline" onClick={reset}>
+                Cancelar
+              </Button>
+            </CardContent>
+          </Card>
+        </Reveal>
       ) : null}
 
       {error ? (
         <div
           role="alert"
-          className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive"
+          className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive"
         >
           <AlertCircle className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           <span>{error}</span>
@@ -377,13 +382,15 @@ export function ImportWorkflow() {
       ) : null}
 
       {summary ? (
-        <SummaryCard
-          summary={summary}
-          confirmed={status === "confirmed"}
-          saving={status === "saving"}
-          onConfirm={confirmSummary}
-          onReset={reset}
-        />
+        <Reveal>
+          <SummaryCard
+            summary={summary}
+            confirmed={status === "confirmed"}
+            saving={status === "saving"}
+            onConfirm={confirmSummary}
+            onReset={reset}
+          />
+        </Reveal>
       ) : null}
     </div>
   );
@@ -461,7 +468,7 @@ function SummaryCard({
         </div>
 
         {summary.warnings.length > 0 ? (
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm">
+          <div className="rounded-xl border border-amber-500/30 bg-muted/30 p-4 text-sm">
             <p className="font-medium">Avisos da importação</p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-muted-foreground">
               {summary.warnings.map((warning, index) => (

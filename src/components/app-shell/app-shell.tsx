@@ -23,7 +23,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             aria-label="Unveil, início"
           >
             <span className="size-9 shrink-0 overflow-hidden rounded-xl sm:size-10">
-              <Image src="/icon-dark.png" alt="" width={40} height={40} />
+              <Image src="/icon-reciprocidade.png" alt="" width={40} height={40} />
             </span>
             <span>
               <span className="block text-lg font-semibold tracking-wide">

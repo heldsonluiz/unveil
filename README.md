@@ -69,13 +69,13 @@ utilizado. Não publique seu ZIP nem nomes de usuário ou outros dados pessoais.
 
 ## Executar localmente
 
-Com Node.js e npm instalados:
+Com Node.js 20.19+, 22.13+ ou 24+ e pnpm instalados:
 
 ```bash
 git clone git@github.com:heldsonluiz/unveil.git
 cd unveil
-npm ci
-npm run dev
+pnpm install --frozen-lockfile --strict-peer-dependencies
+pnpm dev
 ```
 
 Acesse [localhost:3000](http://localhost:3000).
@@ -83,26 +83,75 @@ Acesse [localhost:3000](http://localhost:3000).
 Para executar a versão de produção:
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 ## Validação e testes
 
 ```bash
 # Lint, TypeScript, testes unitários/componentes e build
-npm run validate
+pnpm validate
 
 # Instalar o Chromium utilizado nos testes de navegador
-npx playwright install chromium
+pnpm exec playwright install chromium
 
 # Testes de ponta a ponta
-npm run test:e2e
+pnpm test:e2e
 ```
 
-Em Linux, caso faltem bibliotecas do navegador, execute `npx playwright install-deps chromium`. A instalação das dependências do sistema pode solicitar privilégios de administrador.
+Em Linux, caso faltem bibliotecas do navegador, execute `pnpm exec playwright install-deps chromium`. A instalação das dependências do sistema pode solicitar privilégios de administrador.
 
 Os testes E2E geram o build e iniciam a aplicação na porta `3100`. As fixtures usam perfis fictícios; exportações reais não devem ser adicionadas ao repositório.
+
+## ESLint
+
+O projeto usa ESLint 10 com configuração flat. O plugin oficial
+`@next/eslint-plugin-next` mantém as regras Core Web Vitals na mesma versão do
+Next.js. React, hooks, TypeScript, imports e acessibilidade usam plugins que
+declaram suporte ao ESLint 10. `eslint-config-next` foi removido porque seus
+plugins transitivos de React, imports e acessibilidade ainda limitam os peers ao
+ESLint 9. As regras equivalentes estão explícitas em `eslint.config.mjs`; essa
+configuração não replica integralmente todas as regras do antigo preset.
+
+Instale com `pnpm install --frozen-lockfile --strict-peer-dependencies` para
+rejeitar conflitos de peers. Não use `--force` ou `--legacy-peer-deps`.
+
+## Paleta de cores
+
+O tema usa apenas preto e cinzas neutros nos fundos, cards, menus, campos e
+estados de hover das superfícies. Verde musgo identifica ações principais,
+links e indicadores de foco. Avisos mantêm suas cores nos textos e bordas,
+com fundos neutros. Os tokens ficam em `src/app/globals.css`.
+
+| Uso                            | Cor       |
+| ------------------------------ | --------- |
+| Fundo                          | `#141414` |
+| Cards                          | `#202020` |
+| Menus e superfícies discretas  | `#282828` |
+| Superfícies secundárias        | `#303030` |
+| Hover e seleção de superfícies | `#333333` |
+| Navegação                      | `#101010` |
+| Texto principal                | `#eeeeee` |
+| Texto secundário               | `#b5b5b5` |
+| Ações principais e links       | `#a0ba46` |
+| Hover das ações principais     | `#b3cc5c` |
+| Foco de teclado                | `#cce881` |
+| Erros e ações destrutivas      | `#e48a96` |
+| Bordas                         | `#484848` |
+
+## Movimento
+
+Motion anima entradas de 460 ms, deslocamento de 24 px e escala de 98% a 100% na página inicial,
+nos cards do dashboard e nas etapas de seleção, processamento e revisão da
+importação. Cards entram em sequência com intervalos de 65–90 ms. As tabelas não
+recebem animações de linhas ou de paginação.
+
+`MotionProvider` carrega `domAnimation` sob demanda. `Reveal` mantém o conteúdo
+visível no HTML inicial, inclusive sem JavaScript. A preferência por movimento
+reduzido elimina as entradas, os deslocamentos ao pressionar e as transições CSS.
+Botões e links usam respostas de 160 ms em CSS; botões sobem 2 px no hover em
+dispositivos com ponteiro, com retorno ao pressionar.
 
 ## Tecnologias
 
@@ -118,3 +167,7 @@ Os testes E2E geram o build e iniciam a aplicação na porta `3100`. As fixtures
 
 - [Roadmap](ROADMAP.md): etapas, entregas e próximos incrementos.
 - [Diretrizes do projeto](AGENTS.md): requisitos, decisões de escopo e orientações de desenvolvimento.
+
+No dashboard, o card sob o cursor cresce 4%; os demais diminuem 4%, sem
+desfoque e sem alterar o grid. Esse efeito é restrito a ponteiros precisos com
+hover e fica desativado com movimento reduzido.

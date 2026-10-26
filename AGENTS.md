@@ -566,6 +566,18 @@ npx shadcn@latest add \
 
 Se algum componente tiver sido renomeado ou descontinuado, use o equivalente atual oferecido pelo CLI e registre a decisão neste arquivo.
 
+### ESLint — migração de 2026-10-26
+
+Use ESLint 10 com Node.js `^20.19.0 || ^22.13.0 || >=24`. A configuração flat
+usa diretamente `@next/eslint-plugin-next`, mantido na mesma versão do Next.js,
+e plugins compatíveis para React, hooks, TypeScript, imports e acessibilidade.
+Não reinstale `eslint-config-next` enquanto seus plugins transitivos exigirem
+ESLint 9. As regras equivalentes estão explícitas em `eslint.config.mjs`; não há
+equivalência integral com o preset anterior. Use pnpm e preserve a verificação
+estrita de peers em `pnpm-workspace.yaml`, sem `--force` ou `--legacy-peer-deps`.
+O script de instalação de `unrs-resolver` fica desativado; os binários opcionais
+pré-compilados atendem à instalação validada.
+
 ### 15.4 Instalar ferramentas de teste e formatação
 
 Este projeto mantém compatibilidade com Node.js 20 e `@types/node@20`. Por isso, use Vitest 4 e mantenha o pacote de cobertura na mesma versão principal. Não instale `@vitejs/plugin-react`: o Next.js não usa Vite para executar a aplicação e o Vitest já processa TypeScript e JSX sem esse plugin.
