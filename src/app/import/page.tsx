@@ -5,9 +5,9 @@ import { ImportWorkflow } from "@/components/import/import-workflow";
 
 export default function ImportPage() {
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-7 sm:px-6 sm:py-10 lg:px-8 lg:py-16">
+    <main className="app-container page-content page-content--narrow">
       <div className="mb-6 flex items-start gap-3 sm:mb-8 sm:gap-4">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-12 sm:rounded-2xl">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground sm:size-12 sm:rounded-none">
           <FileUp aria-hidden="true" />
         </span>
         <div>

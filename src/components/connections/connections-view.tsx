@@ -50,7 +50,7 @@ export function ConnectionsView({
     return (
       <div
         role="alert"
-        className="space-y-3 rounded-xl border border-destructive/30 p-4"
+        className="space-y-3 rounded-none border border-destructive/30 p-4"
       >
         <p>Não foi possível ler os dados locais. Tente novamente.</p>
         <Button
@@ -66,7 +66,7 @@ export function ConnectionsView({
     );
   if (!snapshot)
     return (
-      <div className="space-y-3 rounded-xl border p-5">
+      <div className="space-y-3 rounded-none border p-5">
         <h2 className="font-semibold">
           {snapshotId
             ? "Importação não encontrada"
@@ -91,7 +91,7 @@ export function ConnectionsView({
       {(category === "following" || category === "not-following-back") && (
         <aside
           aria-label="Sobre perfis indisponíveis"
-          className="space-y-2 rounded-xl border bg-muted/30 p-4 text-sm text-muted-foreground"
+          className="space-y-2 rounded-none border bg-muted/30 p-4 text-sm text-muted-foreground"
         >
           <h2 className="font-medium text-foreground">
             Sobre perfis indisponíveis
@@ -125,7 +125,7 @@ export function ConnectionsView({
                 key={key}
                 href={connectionHref(key as ConnectionCategory, snapshot.id)}
                 aria-current={key === category ? "page" : undefined}
-                className="shrink-0 rounded-lg border px-3 py-2 text-xs hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:bg-primary aria-[current=page]:text-primary-foreground"
+                className="shrink-0 rounded-none border px-3 py-2 text-xs hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:bg-primary aria-[current=page]:text-primary-foreground"
               >
                 {label}
               </Link>
@@ -139,7 +139,7 @@ export function ConnectionsView({
       {dataset.warnings.length > 0 && (
         <div
           role="status"
-          className="rounded-xl border bg-muted/40 p-4 text-sm"
+          className="rounded-none border bg-muted/40 p-4 text-sm"
         >
           <p className="font-medium">Avisos da importação</p>
           <ul className="mt-2 list-inside list-disc">
@@ -150,13 +150,13 @@ export function ConnectionsView({
         </div>
       )}
       {category === "pending-sent" && (
-        <p className="rounded-xl border bg-muted/30 p-4 text-sm text-muted-foreground">
+        <p className="rounded-none border bg-muted/30 p-4 text-sm text-muted-foreground">
           Solicitações enviadas ainda registradas como pendentes no momento da
           exportação. A aplicação não cancela solicitações automaticamente.
         </p>
       )}
       {category === "pending-received" && (
-        <p className="rounded-xl border bg-muted/30 p-4 text-sm text-muted-foreground">
+        <p className="rounded-none border bg-muted/30 p-4 text-sm text-muted-foreground">
           Solicitações recebidas ainda registradas na exportação. Esse conjunto
           é opcional e pode não ser fornecido pelo Instagram. A aplicação não
           aceita nem recusa solicitações.

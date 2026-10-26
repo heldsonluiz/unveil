@@ -17,7 +17,7 @@ export function EmptyState({
   return (
     <Card className="border-dashed bg-card/70">
       <CardContent className="flex flex-col items-start gap-4 p-6 sm:p-8">
-        <span className="flex size-11 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+        <span className="flex size-11 items-center justify-center rounded-none bg-secondary text-secondary-foreground">
           <Construction className="size-5" aria-hidden="true" />
         </span>
         <div>

@@ -33,7 +33,7 @@ export function ExportInstructions({
       <Card className="border-primary/20 bg-card/80">
         <CardHeader className="border-b border-border/70">
           <div className="flex items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-12 sm:rounded-2xl">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground sm:size-12 sm:rounded-none">
               <FileArchive aria-hidden="true" />
             </div>
             <CardTitle className="text-xl sm:text-2xl">
@@ -96,7 +96,7 @@ export function ExportInstructions({
             ))}
           </ol>
 
-          <div className="mt-8 rounded-xl border border-border/70 bg-muted/40 p-5">
+          <div className="mt-8 rounded-none border border-border/70 bg-muted/40 p-5">
             <h2 className="font-semibold">Configure a exportação</h2>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-muted-foreground">
               <li className="flex gap-3">
@@ -144,7 +144,7 @@ export function ExportInstructions({
             </li>
           </ol>
 
-          <div className="mt-8 flex gap-3 rounded-xl border border-primary/20 bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
+          <div className="mt-8 flex gap-3 rounded-none border border-primary/20 bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
             <Info
               className="mt-1 size-4 shrink-0 text-primary"
               aria-hidden="true"

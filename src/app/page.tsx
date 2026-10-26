@@ -15,7 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-7 sm:px-6 sm:py-10 lg:px-8 lg:py-16">
+    <main className="app-container page-content">
       <section className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <Reveal className="max-w-2xl">
           <Badge
@@ -59,7 +59,7 @@ export default function Home() {
         <Reveal delay={0.12}>
           <Card className="border-primary/20 bg-card/80 shadow-xl shadow-primary/5">
             <CardHeader className="flex flex-row items-center gap-3 border-b border-border/70">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-12 sm:rounded-2xl">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground sm:size-12 sm:rounded-none">
                 <FileArchive aria-hidden="true" />
               </div>
               <CardTitle className="text-xl">
@@ -143,13 +143,13 @@ export default function Home() {
               as="li"
               delay={index * 0.09}
               key={title}
-              className="relative rounded-xl border border-border/70 bg-card/60 p-5"
+              className="relative rounded-none border border-border/70 bg-card/60 p-5"
             >
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Passo {index + 1}
               </span>
               <div className="mt-2 flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
+                <span className="flex size-9 items-center justify-center rounded-none bg-secondary text-secondary-foreground">
                   <Icon className="size-4" aria-hidden="true" />
                 </span>
                 <h3 className="font-semibold">{title}</h3>

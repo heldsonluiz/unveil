@@ -29,6 +29,10 @@ A aplicação deve permitir que o usuário importe o ZIP oficial de dados do Ins
 
 A aplicação é de uso pessoal, local-first e não deve solicitar a senha do Instagram. Não deve acessar APIs privadas, automatizar o navegador, fazer scraping ou executar ações como seguir, deixar de seguir ou cancelar solicitações.
 
+### Identidade visual — 2026-10-26
+
+O website pessoal é a referência visual do Unveil: DM Sans no corpo, Manrope nos títulos e IBM Plex Mono nos dados técnicos; fundo #141414, superfícies #1c1c1c, linhas #333333 e verde #a0ba46. Usar bordas retas em cartões, controles e diálogos, escala de espaçamento baseada em 4/8 px e conteúdo com até 1184 px e margens responsivas. Manter indicadores circulares quando sua forma comunica estado.
+
 ## 3. Stack obrigatória
 
 - Next.js com App Router

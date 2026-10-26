@@ -144,7 +144,7 @@ export function ConnectionsList({
         onPageChange={changePage}
       />
       {!visible.length ? (
-        <p className="rounded-xl border border-dashed p-6">
+        <p className="rounded-none border border-dashed p-6">
           {profiles.length
             ? "Nenhum perfil corresponde à busca."
             : category === "pending-sent"
@@ -156,7 +156,7 @@ export function ConnectionsList({
       ) : (
         <div
           ref={tableStartRef}
-          className="overflow-x-auto rounded-xl border bg-card"
+          className="overflow-x-auto rounded-none border bg-card"
           role="region"
           aria-label="Tabela de conexões"
           tabIndex={0}

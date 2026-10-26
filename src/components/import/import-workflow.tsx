@@ -315,7 +315,7 @@ export function ImportWorkflow() {
             }}
             onDragOver={(event) => event.preventDefault()}
             onDrop={handleDrop}
-            className="rounded-2xl border-2 border-dashed border-primary/30 bg-card/60 p-6 text-center transition-colors hover:border-primary/60 hover:bg-card sm:p-12"
+            className="rounded-none border-2 border-dashed border-primary/30 bg-card/60 p-6 text-center transition-colors hover:border-primary/60 hover:bg-card sm:p-12"
             aria-label="Selecionar arquivo ZIP"
           >
             <UploadCloud
@@ -374,7 +374,7 @@ export function ImportWorkflow() {
       {error ? (
         <div
           role="alert"
-          className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive"
+          className="flex items-start gap-3 rounded-none border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive"
         >
           <AlertCircle className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           <span>{error}</span>
@@ -431,7 +431,7 @@ function SummaryCard({
             return (
               <div
                 key={kind}
-                className="rounded-xl border border-border/70 bg-muted/30 p-4"
+                className="rounded-none border border-border/70 bg-muted/30 p-4"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-medium">
@@ -468,7 +468,7 @@ function SummaryCard({
         </div>
 
         {summary.warnings.length > 0 ? (
-          <div className="rounded-xl border border-amber-500/30 bg-muted/30 p-4 text-sm">
+          <div className="rounded-none border border-amber-500/30 bg-muted/30 p-4 text-sm">
             <p className="font-medium">Avisos da importação</p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-muted-foreground">
               {summary.warnings.map((warning, index) => (
@@ -481,7 +481,7 @@ function SummaryCard({
         {datasetKinds.some(
           (kind) => summary.datasets[kind].status === "not_provided",
         ) ? (
-          <div className="rounded-xl border border-border/70 bg-muted/30 p-4 text-sm">
+          <div className="rounded-none border border-border/70 bg-muted/30 p-4 text-sm">
             <p className="font-medium">Conjuntos não fornecidos</p>
             <p className="mt-2 text-muted-foreground">
               O Instagram não incluiu estes arquivos nesta exportação. Isso não
@@ -534,7 +534,7 @@ function SummaryCard({
 
 function SummaryMetric({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-lg border border-border/70 p-3">
+    <div className="rounded-none border border-border/70 p-3">
       <p className="text-xs text-muted-foreground">{label}</p>
       <p className="mt-1 text-lg font-semibold tabular-nums">{value}</p>
     </div>

@@ -55,7 +55,7 @@ export function ProjectActions() {
             O Unveil é um projeto open source. Se ele foi útil para você e
             quiser contribuir com qualquer valor, use a chave Pix abaixo.
           </DialogDescription>
-          <div className="rounded-lg border bg-muted/40 p-3">
+          <div className="rounded-none border bg-muted/40 p-3">
             <p className="mb-1 text-xs text-muted-foreground">
               Chave Pix aleatória
             </p>

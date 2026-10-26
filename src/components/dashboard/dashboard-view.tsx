@@ -53,7 +53,7 @@ export function DashboardView() {
     return (
       <div
         role="alert"
-        className="flex flex-col items-start gap-3 rounded-xl border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive sm:flex-row sm:items-center"
+        className="flex flex-col items-start gap-3 rounded-none border border-destructive/30 bg-muted/30 p-4 text-sm text-destructive sm:flex-row sm:items-center"
       >
         <AlertCircle className="size-4" aria-hidden="true" />
         <span>{error}</span>
@@ -168,7 +168,7 @@ export function DashboardView() {
         />
       </div>
 
-      <div className="flex items-start gap-3 rounded-xl border border-border/70 bg-muted/30 p-4 text-sm text-muted-foreground">
+      <div className="flex items-start gap-3 rounded-none border border-border/70 bg-muted/30 p-4 text-sm text-muted-foreground">
         <BarChart3
           className="mt-0.5 size-4 shrink-0 text-primary"
           aria-hidden="true"
@@ -231,7 +231,7 @@ function MetricCard({
         <Link
           href={href}
           aria-label={`Abrir ${label}`}
-          className="group block cursor-pointer rounded-xl transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none"
+          className="group block cursor-pointer rounded-none transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none"
         >
           {card}
         </Link>

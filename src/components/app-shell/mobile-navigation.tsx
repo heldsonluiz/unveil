@@ -35,7 +35,7 @@ export function MobileNavigation() {
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="flex min-h-11 items-center gap-3 rounded-lg border px-3 text-sm font-medium hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
+                className="flex min-h-11 items-center gap-3 rounded-none border px-3 text-sm font-medium hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <Icon className="size-4 text-primary" aria-hidden="true" />
                 {label}

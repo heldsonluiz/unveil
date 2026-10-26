@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { AppShell } from "@/components/app-shell/app-shell";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bodyFont = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const monoFont = IBM_Plex_Mono({
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+});
+
+const headingFont = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -31,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${bodyFont.variable} ${headingFont.variable} ${monoFont.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full">
