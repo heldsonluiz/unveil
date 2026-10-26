@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 
 export const DEFAULT_ZIP_LIMITS = {
-  maxCompressedBytes: 100 * 1024 * 1024,
+  maxCompressedBytes: 200 * 1024 * 1024,
   maxEntries: 2_000,
   maxUncompressedBytes: 500 * 1024 * 1024,
   maxFileBytes: 50 * 1024 * 1024,
