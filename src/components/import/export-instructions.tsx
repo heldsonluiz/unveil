@@ -10,6 +10,8 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { ExportSelectionNotice } from "./export-selection-notice";
+
 const helpUrl =
   "https://www.facebook.com/help/instagram/181231772500920?utm_source=chatgpt.com";
 
@@ -29,6 +31,8 @@ export function ExportInstructions({
           Voltar ao início
         </Link>
       ) : null}
+
+      <ExportSelectionNotice />
 
       <Card className="border-primary/20 bg-card/80">
         <CardHeader className="border-b border-border/70">
@@ -80,13 +84,17 @@ export function ExportInstructions({
                 Desmarque todas as categorias.
               </Fragment>,
               <Fragment key="connections">
-                Em <strong>Conexões</strong>, marque apenas{" "}
+                Em <strong>Conexões</strong>, marque <strong>APENAS</strong>{" "}
                 <strong>Seguidores e seguindo</strong>.
               </Fragment>,
             ].map((step, index) => (
               <li
                 key={index}
-                className="flex gap-4 text-sm leading-6 text-foreground"
+                className={
+                  step.key === "connections"
+                    ? "flex gap-4 border-2 border-primary bg-primary/10 p-4 text-sm leading-6 text-foreground"
+                    : "flex gap-4 text-sm leading-6 text-foreground"
+                }
               >
                 <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold text-secondary-foreground">
                   {index + 1}

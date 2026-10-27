@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, FileUp } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { ExportSelectionNotice } from "@/components/import/export-selection-notice";
 import { ImportWorkflow } from "@/components/import/import-workflow";
 
 export default function ImportPage() {
@@ -19,6 +20,9 @@ export default function ImportPage() {
             confirmar qualquer salvamento local.
           </p>
         </div>
+      </div>
+      <div className="mb-6 sm:mb-8">
+        <ExportSelectionNotice />
       </div>
       <ImportWorkflow />
       <Link
